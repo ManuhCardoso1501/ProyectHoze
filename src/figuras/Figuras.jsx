@@ -24,12 +24,12 @@ export default function Figuras(){
     
     return(
         <group>
-            <mesh ref={octahe} position={[0,5,80]}>
+            <mesh castShadow = {true} ref={octahe} position={[0,5,80]}>
                 <octahedronGeometry args={[5,0]} />
                 <meshNormalMaterial opacity={0.5} transparent={false}/>
             </mesh>
 
-            <mesh ref={boxRef} position={[0,5,50]}>
+            <mesh castShadow = {true} ref={boxRef} position={[0,5,50]}>
                 <boxGeometry args={[7, 7, 7]}/>
                 <meshPhysicalMaterial 
                     color={"purple"}
@@ -40,12 +40,12 @@ export default function Figuras(){
                 />
             </mesh>
 
-            <mesh ref={sphere} position={[0,5,0]}>
+            <mesh castShadow = {true} ref={sphere} position={[0,5,0]}>
                 <sphereGeometry args={[5]}/>
                 <meshPhongMaterial color={"red"} specular={"red"} shininess={110} wireframe={true}/>
             </mesh>
 
-            <mesh ref={boxRef2} position={[0,5,-50]} >
+            <mesh castShadow = {true} ref={boxRef2} position={[0,5,-50]} >
                 <boxGeometry args={[7, 7, 7]}/>
                 <meshLambertMaterial
                     color={"Orange"} 
@@ -55,7 +55,7 @@ export default function Figuras(){
                 />
             </mesh>
 
-            <mesh ref={icosa} position={[0,5,-80]}> 
+            <mesh castShadow = {true} ref={icosa} position={[0,5,-80]}> 
                 <icosahedronGeometry args={[5]}/>
                 <meshToonMaterial 
                     color={"gray"}

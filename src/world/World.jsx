@@ -3,12 +3,12 @@ import { RepeatWrapping } from "three";
 
 export default function World(props){
     const {nodes, materials} = useGLTF("/assets/models/world/renderMundo.glb");
-    const PATH = "/assets/textures/floor/";
+    const PATH = "/assets/textures/floort2/";
     const propsTexture = useTexture({
-        map: PATH + "coast_sand_01_diff_1k.jpg",
-        displacementMap: PATH + "coast_sand_01_disp_1k.png",
-        normalMap: PATH + "coast_sand_01_nor_gl_1k.png",
-        roughnessMap: PATH + "coast_sand_01_rough_1k_1.png"
+        map: PATH + "cobblestone_embedded_asphalt_diff_1k.jpg",
+        displacementMap: PATH + "cobblestone_embedded_asphalt_disp_1k.png",
+        normalMap: PATH + "cobblestone_embedded_asphalt_disp_1k.png",
+        roughnessMap: PATH + "cobblestone_embedded_asphalt_rough_1k.png"
 
     });
 
@@ -28,10 +28,16 @@ export default function World(props){
         <mesh>
             <group {...props} dispose={null}>
                 <group>
-                    <mesh geometry={nodes.walls.geometry} material={nodes.walls.material} />
-                    <mesh geometry={nodes.floor.geometry}>
-                        <meshStandardMaterial {...propsTexture}/>
+                    {/* <mesh geometry={nodes.walls.geometry} material={nodes.walls.material} /> */}
+                    <mesh receiveShadow = {true} geometry={nodes.floor.geometry}>
+                        <meshStandardMaterial {...propsTexture} metalness={0}/>
                     </mesh>
+                    {/* <mesh castShadow = {true} geometry={nodes.WoodenFence.geometry} material={nodes.WoodenFence.material}>
+                        <meshStandardMaterial color={"#FF8E07"}
+                            metalness={0}
+                            roughness={2}
+                        />
+                    </mesh> */}
                 </group>
             </group>
         </mesh>

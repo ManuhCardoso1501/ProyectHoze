@@ -1,17 +1,26 @@
 import { OrbitControls } from "@react-three/drei";
 import World from "./world/World";
+import Ligths from "./ligths/Ligths";
 import Figuras from "./figuras/Figuras";
+import EnviromentsEdit from "./environments/EnviromentsEdit";
+import { Perf } from "r3f-perf";
+import { Suspense } from "react";
+
 
 
 const Experiencie = () => {
    
     return(
         <>
-            <ambientLight/>
-            <directionalLight position={[10,10,5]}/>
+            <Perf position="top-left"/>
+            <Suspense fallback={null}>
+                <Ligths/>
+                <World/>
+                <EnviromentsEdit/>
+                <Figuras/>
+            </Suspense>
             <OrbitControls makeDefault/>
-            <World/>
-            <Figuras/>
+              
         </>
         
     )
